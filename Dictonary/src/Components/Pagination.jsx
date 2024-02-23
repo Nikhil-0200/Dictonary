@@ -1,8 +1,6 @@
 
 const Pagination = ({currentPage, totalPages, setCurrentPage}) => {
 
-  console.log(totalPages);
-
   return (
     <div>
       <button disabled={currentPage === 1} onClick={()=>setCurrentPage(currentPage -1)}>Prev</button>

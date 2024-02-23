@@ -24,7 +24,7 @@ const Dictionary = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
+      console.log(result.list);
       setData(result.list);
     } catch (error) {
       console.error(error);
@@ -32,7 +32,17 @@ const Dictionary = () => {
   }
 
   useEffect(() => {
-    fetchData();
+    
+
+    const debounce = setTimeout(()=>{
+      fetchData()
+    }, 1000 )
+
+    return ()=>{
+      clearTimeout(debounce)
+    }
+
+
   }, [search.word]);
 
 
